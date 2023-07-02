@@ -64,10 +64,6 @@ public class OrderTest {
         Catalog catalog = new Catalog();
         order.addItem(catalog.getItemById(2));
         order.addItem(catalog.getItemById(3));
-//        ArrayList<Item> items = new ArrayList<>();
-//        items.add(catalog.getItemById(2));
-//        items.add(catalog.getItemById(3));
-//        assertArrayEquals(order.getItems().keySet().toArray(), items.toArray());
         assertTrue(order.getItems().containsKey(catalog.getItemById(2)));
         assertTrue(order.getItems().containsKey(catalog.getItemById(3)));
     }
@@ -110,5 +106,16 @@ public class OrderTest {
         order.applyDiscount(PromoCodes.LOVE_DAY.getDiscount());
         double priceAfterApplyingDiscount = order.getTotalPrice();
         assertEquals(priceBeforeApplyingDiscount * (1 - PromoCodes.LOVE_DAY.getDiscount()), priceAfterApplyingDiscount);
+    }
+    @Test
+    @DisplayName("Проверка применения скидки")
+    public void shouldDiscountApplies() {
+        int orderId = 3;
+        Client client = new Client(1, "Anna");
+        Order order = new Order(orderId, client);
+        Catalog catalog = new Catalog();
+        order.addItem(catalog.getItemById(6));
+        order.applyDiscount(PromoCodes.LOVE_DAY.getDiscount());
+        assertTrue(order.isDiscountApplied());
     }
 }

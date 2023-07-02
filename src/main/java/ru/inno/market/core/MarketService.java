@@ -1,6 +1,9 @@
 package ru.inno.market.core;
 
-import ru.inno.market.model.*;
+import ru.inno.market.model.Client;
+import ru.inno.market.model.Item;
+import ru.inno.market.model.Order;
+import ru.inno.market.model.PromoCodes;
 
 import java.util.HashMap;
 import java.util.Map;

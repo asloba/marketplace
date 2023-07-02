@@ -6,7 +6,6 @@ import ru.inno.market.model.Item;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 public class Catalog {
     private Map<Item, Integer> storage;
